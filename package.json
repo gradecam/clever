@@ -1,0 +1,60 @@
+{
+  "name": "@gradecam/clever",
+  "version": "0.1.0",
+  "description": "A modern NodeJS API for interacting with the Clever API (https://api.clever.com)",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "coverage": "jest --coverage",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run clean",
+    "posttest": "npm run check"
+  },
+  "keywords": [
+    "clever",
+    "api",
+    "typescript",
+    "javascript",
+    "library",
+    "promise"
+  ],
+  "author": "Jarom Loveridge <jaroml@gradecam.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "~23.3.2",
+    "@types/node": "~10.10.1",
+    "@types/qs": "~6.5.1",
+    "axios-mock-adapter": "~1.15.0",
+    "gts": "~0.8.0",
+    "jest": "~23.6.0",
+    "ts-jest": "~23.10.1",
+    "ts-node": "~7.0.1",
+    "typescript": "~3.0.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "axios": "~0.18.0",
+    "qs": "~6.5.2"
+  },
+  "files": [
+    "dist/src"
+  ],
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
