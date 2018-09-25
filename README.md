@@ -1,4 +1,4 @@
-# @gradecam/clever
+# @gradecam/clever [![Build Status](https://travis-ci.org/gradecam/clever.svg?branch=master)](https://travis-ci.org/gradecam/clever)
 
 A Promise based HTTP client for interacting with the Clever's API.
 

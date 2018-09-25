@@ -11,7 +11,7 @@
     "compile": "tsc -p .",
     "coverage": "jest --coverage",
     "fix": "gts fix",
-    "prepare": "npm run compile",
+    "prepublishOnly": "npm run compile",
     "pretest": "npm run clean",
     "posttest": "npm run check"
   },
