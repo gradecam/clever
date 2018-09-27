@@ -8,7 +8,7 @@ import * as district from './district';
 import * as districtAdmin from './district_admin';
 import * as event from './event';
 import * as oauth from './oauth';
-import {ItemResponse, ListResponse, MeResponse} from './response';
+import * as Response from './response';
 import * as school from './school';
 import * as schoolAdmin from './school_admin';
 import * as section from './section';
@@ -17,7 +17,7 @@ import * as teacher from './teacher';
 import * as term from './term';
 
 export type ItemPromise<T> = Promise<T>;
-export type ListPromise<T> = Promise<ListResponse<T>>;
+export type ListPromise<T> = Promise<Response.ListResponse<T>>;
 
 export interface ItemApi<T = Schema.Resource> {
   (id: string): ItemPromise<T>;
@@ -92,7 +92,7 @@ export function itemApi<T>(client: ClientInstance, path: string, name = ''): Ite
       throw new Error('must specify an ID');
     }
     const url = name ? `${path}/${id}/${name}` : `${path}/${id}`;
-    return client.get<ItemResponse<T>>(url).then(resp => resp.data.data);
+    return client.get<Response.ItemResponse<T>>(url).then(resp => resp.data.data);
   };
 }
 
@@ -152,7 +152,7 @@ export function listApi<T, P = ListParams>(
     if (opts.stream) {
       return stream.create<T>(client, url, params);
     }
-    return client.get<ListResponse<T>>(url, {params}).then(resp => resp.data);
+    return client.get<Response.ListResponse<T>>(url, {params}).then(resp => resp.data);
   };
 }
 
@@ -200,7 +200,7 @@ export function createApi<T, R extends Api<T, P> = Api<T, P>, P = ListParams>(
  */
 export interface Apis {
   // Identity APIs
-  me(): Promise<ItemResponse<Schema.Me>>;
+  me(): Promise<Response.ItemResponse<Schema.Me>>;
   tokens: oauth.OAuth;
 
   // Data APIs
@@ -223,7 +223,7 @@ export interface Apis {
  */
 export function createApis(client: ClientInstance): Apis {
   return {
-    me: () => client.get<MeResponse<Schema.Me>>('/v2.0/me').then(resp => resp.data),
+    me: () => client.get<Response.MeResponse<Schema.Me>>('/v2.0/me').then(resp => resp.data),
     tokens: oauth.create(client),
     contacts: contact.create(client),
     courses: course.create(client),
