@@ -4,6 +4,9 @@ import * as https from 'https';
 import * as Qs from 'qs';
 
 import * as Api from './apis';
+import * as Schema from './schema';
+
+export {Api, Schema};
 
 // Used when retrying rate limited requests without affecting
 // the default axios client.

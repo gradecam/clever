@@ -75,12 +75,12 @@ either support it natively or you may be able to use compatible shim.
 
 This module was written with TypeScript so if you happen to be using TypeScript
 there is no need to try to find types for the library as they are already included.
-The schema and API types, however, are not directly exported from the module since
+If you want to reference one of the Schemas you should be able to do the following:
 I don't know of an elegant and supported way of doing so. If you need them you can
 gain access to them by doing something like the following:
 
 ```ts
-import * as Schema from '@gradecam/clever/dist/src/schema';
+import { Schema } from '@gradecam/clever';
 
 let section: Schema.Section;
 // do something interesting
