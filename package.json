@@ -1,6 +1,6 @@
 {
   "name": "@gradecam/clever",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A modern NodeJS API for interacting with the Clever API (https://api.clever.com)",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
