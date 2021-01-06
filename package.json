@@ -40,8 +40,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "axios": "~0.18.0",
-    "qs": "~6.5.2"
+    "axios": "^0.21.1",
+    "qs": "^6.9.4"
   },
   "files": [
     "dist/src"
